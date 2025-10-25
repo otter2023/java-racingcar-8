@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Round;
 import racingcar.utils.Parser;
@@ -16,7 +17,6 @@ public class CarGameService {
     }
 
     public List<Round> carGameStart(String carsLineUp, Integer times) {
-
         List<Car> cars = setUpCars(carsLineUp);
         List<Round> gameRounds = new ArrayList<>();
 
@@ -29,13 +29,16 @@ public class CarGameService {
     }
 
     public Round startRound(List<Car> cars, Integer roundNumber) {
+        for (Car car : cars) {
+            int value = getRandomValue();
+            car.goForward(value);
+        }
 
-        Round round = new Round(cars, roundNumber);
+        return new Round(cars, roundNumber);
+    }
 
-        // TODO : 게임 진행
-
-
-        return round;
+    public int getRandomValue() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     public List<Car> setUpCars(String carsLineUp) {

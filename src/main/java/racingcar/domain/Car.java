@@ -19,6 +19,11 @@ public class Car {
         return new Car(this);
     }
 
+    public void goForward(int value) {
+        if (value >= 4) {
+            position++;
+        }
+    }
 
     public int getPosition() {
         return position;

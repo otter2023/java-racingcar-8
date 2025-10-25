@@ -12,7 +12,7 @@ public class CarGameOutputView {
         List<Car> cars = thisRound.getCars();
 
         for (Car car : cars) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getStep()));
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
         System.out.println();
     }
