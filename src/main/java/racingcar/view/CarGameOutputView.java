@@ -17,18 +17,17 @@ public class CarGameOutputView {
         System.out.println();
     }
 
-    public void finalResult(Round result) {
-        System.out.print("최종 우승자 : ");
-        System.out.println(result);
+    public void finalResult(List<String> winners) {
+        String winnerNames = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 
-    public void result(List<Round> rounds) {
+    public void result(List<Round> rounds, List<String> winners) {
         for (Round round : rounds) {
             interimResult(round);
         }
 
-        Round finalRound = rounds.getLast(); // Java 21+ 에만 존재
-        finalResult(finalRound);
+        finalResult(winners);
     }
 
 }
