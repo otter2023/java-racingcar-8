@@ -3,15 +3,25 @@ package racingcar.domain;
 public class Car {
 
     private String name;
-    private int step;
+    private int position;
 
     public Car(String name) {
-        this.step = 0;
+        this.position = 0;
         this.name = name;
     }
 
-    public int getStep() {
-        return step;
+    public Car(Car other) {
+        this.name = other.name;
+        this.position = other.position;
+    }
+
+    public Car copy() {
+        return new Car(this);
+    }
+
+
+    public int getPosition() {
+        return position;
     }
 
     public String getName() {
