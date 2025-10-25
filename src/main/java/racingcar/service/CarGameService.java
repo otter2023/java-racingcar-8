@@ -37,6 +37,30 @@ public class CarGameService {
         return new Round(cars, roundNumber);
     }
 
+    public List<String> finalResult(List<Round> rounds) {
+        Round finalRound = rounds.getLast(); // Java 21+에만 존재
+        List<Car> cars =  finalRound.getCars();
+        int maxPosition = findMaxPosition(cars);
+
+        return findWinnerCars(cars, maxPosition);
+    }
+
+    public int findMaxPosition(List<Car> cars){
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
+
+    public List<String> findWinnerCars(List<Car> cars, int maxPosition){
+        List<String> winners = cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .toList();
+
+        return winners;
+    }
+
     public int getRandomValue() {
         return Randoms.pickNumberInRange(0, 9);
     }

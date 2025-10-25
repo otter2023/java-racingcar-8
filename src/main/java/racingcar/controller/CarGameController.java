@@ -24,7 +24,8 @@ public class CarGameController {
         Integer times = inputView.tryTimes();
 
         List<Round> rounds = service.carGameStart(carsLineUp, times);
+        List<String> winners = service.finalResult(rounds);
 
-        outputView.result(rounds);
+        outputView.result(rounds, winners);
     }
 }
