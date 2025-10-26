@@ -10,12 +10,6 @@ import java.util.List;
 
 public class CarGameService {
 
-    private final Parser parser;
-
-    public CarGameService(Parser parser) {
-        this.parser = parser;
-    }
-
     public List<Round> carGameStart(String carsLineUp, Integer times) {
         List<Car> cars = setUpCars(carsLineUp);
         List<Round> gameRounds = new ArrayList<>();
@@ -66,7 +60,7 @@ public class CarGameService {
     }
 
     public List<Car> setUpCars(String carsLineUp) {
-        List<String> carNames = parser.splitCars(carsLineUp);
+        List<String> carNames = Parser.splitByDelimiter(carsLineUp);
         return addParticipatingCar(carNames);
     }
 

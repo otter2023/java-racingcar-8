@@ -7,7 +7,7 @@ public class Parser {
 
     private static final String delimiter = ",";
 
-    public List<String> splitCars(String carsLineUp) {
+    public static List<String> splitByDelimiter(String carsLineUp) {
         return List.of(carsLineUp.split(Pattern.quote(delimiter)));
     }
 }
