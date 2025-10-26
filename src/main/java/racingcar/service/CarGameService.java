@@ -10,8 +10,10 @@ import java.util.List;
 
 public class CarGameService {
 
-    public List<Round> carGameStart(String carsLineUp, Integer times) {
+    public List<Round> carGameStart(String carsLineUp, String timesAsString) {
         List<Car> cars = setUpCars(carsLineUp);
+        Integer times = setUpRoundTimes(timesAsString);
+
         List<Round> gameRounds = new ArrayList<>();
 
         for (int i = 1; i <= times; i++) {
@@ -62,6 +64,10 @@ public class CarGameService {
     public List<Car> setUpCars(String carsLineUp) {
         List<String> carNames = Parser.splitByDelimiter(carsLineUp);
         return addParticipatingCar(carNames);
+    }
+
+    public Integer setUpRoundTimes(String timesAsString){
+        return Integer.parseInt(timesAsString);
     }
 
     public List<Car> addParticipatingCar(List<String> carNames) {

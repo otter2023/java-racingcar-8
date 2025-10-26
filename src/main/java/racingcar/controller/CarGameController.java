@@ -21,7 +21,7 @@ public class CarGameController {
 
     public void run() {
         String carsLineUp = inputView.inputCarName();
-        Integer times = inputView.tryTimes();
+        String times = inputView.inputRoundTimes();
 
         List<Round> rounds = service.carGameStart(carsLineUp, times);
         List<String> winners = service.finalResult(rounds);

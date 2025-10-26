@@ -9,8 +9,8 @@ public class CarGameInputView {
         return Console.readLine();
     }
 
-    public Integer tryTimes() {
+    public String inputRoundTimes() {
         System.out.println("시도할 횟수는 몇 회인가요?");
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 }
