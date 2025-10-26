@@ -21,8 +21,4 @@ public class Round {
     public List<Car> getCars() {
         return cars;
     }
-
-    public int getRoundNumber() {
-        return roundNumber;
-    }
 }

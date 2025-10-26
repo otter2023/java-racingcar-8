@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Round;
+import racingcar.validator.CarGameValidator;
 import racingcar.utils.Parser;
 
 import java.util.ArrayList;
@@ -63,10 +64,14 @@ public class CarGameService {
 
     public List<Car> setUpCars(String carsLineUp) {
         List<String> carNames = Parser.splitByDelimiter(carsLineUp);
+        CarGameValidator.validateCarsName(carNames);
+
         return addParticipatingCar(carNames);
     }
 
     public Integer setUpRoundTimes(String timesAsString){
+        CarGameValidator.validateRoundTimes(timesAsString);
+
         return Integer.parseInt(timesAsString);
     }
 
